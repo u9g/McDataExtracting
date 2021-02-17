@@ -27,5 +27,5 @@ jobs:
         java-version: 1.8
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Grant execute perm
+    - name: Run npm
       run: npm run start -- ${{ github.event.inputs.minecraftVersion }}
