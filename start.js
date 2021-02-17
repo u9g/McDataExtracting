@@ -22,7 +22,7 @@ async function start () {
   await fs.writeFile('gradle.properties', text)
   console.info('Config file written.')
   const child = require('child_process').exec('gradle run')
-  // child.stdout.pipe(process.stdout) // if you want the output of gradle
+  child.stdout.pipe(process.stdout) // if you want the output of gradle
   await once(child, 'exit')
   console.info('Gradle done.')
 }
