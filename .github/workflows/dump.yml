@@ -28,8 +28,10 @@ jobs:
       run: npm run start -- ${{ github.event.inputs.minecraftVersion }}
     - name: rm node_modules
       run: rm -Rf node_modules
+    - name: make dir for json
+      run: mkdir json && mv blockCollisionShapes.json json/blockCollisionShapes.json
     - name: save to artifact
       uses: actions/upload-artifact@v2
       with:
         name: data
-        path: .
+        path: json
