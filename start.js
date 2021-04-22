@@ -18,7 +18,8 @@ async function start () {
     console.error('There was a problem with the version supplied.')
     return
   }
-  const text = `minecraft_version=${wantedVersion}\nyarn_mappings=${version}`
+  const text = `minecraft_version=${wantedVersion}\nyarn_mappings=${version}\norg.gradle.daemon=true\norg.gradle.parallel=true\norg.gradle.configureondemand=true\norg.gradle.jvmargs=-Xmx3g -XX:MaxPermSize=2048m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8`
+
   await fs.writeFile('gradle.properties', text)
   console.info('Config file written.')
   const child = require('child_process').exec('gradle run')
