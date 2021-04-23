@@ -27,6 +27,7 @@ async function start () {
   child.stdout.pipe(process.stdout) // if you want the output of gradle
   await once(child, 'exit')
   console.info('Gradle done.')
+  await new Promise((resolve, reject) => setTimeout(resolve, 10000))
 }
 
 start()
