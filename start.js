@@ -18,7 +18,7 @@ async function start () {
     console.error('There was a problem with the version supplied.')
     return
   }
-  const text = `minecraft_version=${wantedVersion}\nyarn_mappings=${version}\norg.gradle.parallel=true\norg.gradle.jvmargs=-Xmx3g -XX:MaxPermSize=2048m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8`
+  const text = `minecraft_version=${wantedVersion}\nyarn_mappings=${version}\norg.gradle.parallel=true\norg.gradle.jvmargs=-Xmx6g`
 
   await fs.writeFile('gradle.properties', text)
   console.info('Config file written.')
