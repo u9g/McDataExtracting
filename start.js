@@ -18,7 +18,8 @@ async function start () {
     console.error('There was a problem with the version supplied.')
     return
   }
-  const text = `minecraft_version=${wantedVersion}\nyarn_mappings=${version}\norg.gradle.parallel=true\norg.gradle.jvmargs=-Xmx6g`
+  console.log(wantedVersion, version)
+  const text = `minecraft_version=${wantedVersion}\nyarn_mappings=${version}`
 
   await fs.writeFile('gradle.properties', text)
   console.info('Config file written.')
